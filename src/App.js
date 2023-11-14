@@ -15,8 +15,7 @@ function App() {
         <span>IT Service Management System</span>
       </header> 
    </div>
-       
-      
+             
       <Container fluid>      
       <Row>
         <Col xxl={3} ><Menu ></Menu></Col>
@@ -44,6 +43,33 @@ function Menu(){
   </div>)
 }
 function TicketsContent(){
+
+//Tickets that have been previously logged by the user
+const loggedTickets=[
+{
+number:"12354PX",
+loggedDate:"2022-12-10",
+ticketStatus:"In Progress",
+closingDate:"",
+contactPerson:"Larry Cooper"
+},
+{
+  number:"12354PL",
+  loggedDate:"2023-04-15",
+  ticketStatus:"In Progress",
+  closingDate:"",
+  contactPerson:"Emmanuel Koki"
+  },
+  {
+    number:"12355LP",
+    loggedDate:"2023-02-11",
+    ticketStatus:"In Progress",
+    closingDate:"",
+    contactPerson:"Thabo Smith"
+    }
+  
+
+]
   return (
   <div className="TicketsContent">
  <Table striped bordered hover variant="blue">
@@ -57,27 +83,17 @@ function TicketsContent(){
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>12354PX</td>
-          <td>2022-12-10</td>
-          <td>In Progress</td>
-          <td></td>
-          <td>Lamulele Mohape</td>
-        </tr>
-        <tr>
-          <td>12354PL</td>
-          <td>2023-04-15</td>
-          <td>In Progress</td>
-          <td></td>
-          <td>Judas Leboho</td>
-        </tr>
-        <tr>
-          <td>12355LP</td>
-          <td>2023-02-11</td>
-          <td>Closed</td>
-          <td>2023-02-11</td>
-          <td>Thabo Smith</td>
-        </tr>
+
+      {loggedTickets.map(loggedTicket=>
+         <tr>
+         <td>{loggedTicket.number}</td>
+         <td>{loggedTicket.loggedDate}</td>
+         <td>{loggedTicket.ticketStatus}</td>
+         <td>{loggedTicket.closingDate}</td>
+         <td>{loggedTicket.contactPerson}</td>
+       </tr>
+        )}      
+       
       </tbody>
     </Table> 
   </div>)
