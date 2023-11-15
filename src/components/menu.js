@@ -7,13 +7,13 @@ function Menu(){
     <div className="Menu">
 {     <Nav defaultActiveKey="/"  className="justify-content-end">      
       <Nav.Item >
-        <Nav.Link as={NavLink} to="/">Home</Nav.Link>
+        <Nav.Link as={NavLink} to="/" className="App-link">Home</Nav.Link>
       </Nav.Item>
       <Nav.Item >
-        <Nav.Link as={NavLink} to="/loggedTickets">Logged Tickets</Nav.Link>
+        <Nav.Link as={NavLink} to="/loggedTickets" className="App-link">Logged Tickets</Nav.Link>
       </Nav.Item>
       <Nav.Item >
-        <Nav.Link as={NavLink} to="/addTicket" >Add Ticket</Nav.Link>
+        <Nav.Link as={NavLink} to="/addTicket" className="App-link">Add Ticket</Nav.Link>
       </Nav.Item>
     </Nav> }
     </div>)
