@@ -8,10 +8,18 @@ function AddTicket(){
       <Form className='AddTicket'>
       <Form.Group  controlId="RequestCategory" className="mb-3">
         <Form.Select aria-label="Default select example">
-        <option>Select Request Category</option>
+        <option>Select Category</option>
         <option value="Software">Software</option>
         <option value="Hardware">Hardware</option>
         <option value="Other">Other</option>
+       </Form.Select>
+       </Form.Group>
+       <Form.Group  controlId="RequestUrgency" className="mb-3">
+        <Form.Select aria-label="Default select example">
+        <option>Select Urgency</option>
+        <option value="Software">High</option>
+        <option value="Hardware">Medium</option>
+        <option value="Other">High</option>
        </Form.Select>
        </Form.Group>
         <Form.Group  controlId="RequestDescription" className="mb-3" >
