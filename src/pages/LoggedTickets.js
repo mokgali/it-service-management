@@ -1,4 +1,5 @@
 import Table from 'react-bootstrap/Table';
+import Styles from './LoggedTickets.module.css'
 
 function LoggedTickets(){
 
@@ -29,7 +30,7 @@ function LoggedTickets(){
     
     ]
       return (
-      <div className="TicketsContent">
+      <div className={Styles.LoggedTickets}>
      <Table striped bordered hover variant="blue">
           <thead>
             <tr>

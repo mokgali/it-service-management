@@ -1,10 +1,11 @@
 import Link from "react-router-dom";
 import Nav from "react-bootstrap/Nav"
 import { NavLink } from 'react-router-dom'
+import styles from "./menu.module.css"
 
 function Menu(){
     return (
-    <div className="Menu">
+    <div className={styles.menu}>
 {     <Nav defaultActiveKey="/"  className="justify-content-end">      
       <Nav.Item >
         <Nav.Link as={NavLink} to="/" className="App-link">Home</Nav.Link>

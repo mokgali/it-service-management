@@ -1,11 +1,12 @@
 import { Form } from 'react-bootstrap';
 import { Image} from 'react-bootstrap'
 import { Button} from 'react-bootstrap'
+import Styles from './AddTicket.module.css'
 
 function AddTicket(){
     return(
       <div >
-      <Form className='AddTicket'>
+      <Form className={Styles.AddTicket}>
       <Form.Group  controlId="RequestCategory" className="mb-3">
         <Form.Select aria-label="Default select example">
         <option>Select Category</option>
