@@ -25,7 +25,7 @@ function Login() {
         </Col>
       </Form.Group>
       <Form.Group  className="mb-3" >
-        <Button variant="primary" className="float-end">Submit</Button>    
+        <Button  className="float-end" size="lg">Submit</Button>    
      </Form.Group>   
     </Form>       
   );
