@@ -1,0 +1,15 @@
+.appHeader {
+    background-color: #61dafb29;
+    min-height: 8vh; 
+    align-items: center;
+    justify-content: center;
+    font-size: calc(4px + 2vmin);
+    color: rgb(23, 39, 141);
+   
+   
+  }
+  .appLogo {
+    height: 7vmin;
+    pointer-events: none;
+  }
+  
