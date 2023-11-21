@@ -11,6 +11,9 @@ function Menu(){
         <Nav.Link as={NavLink} to="/" className="App-link">Home</Nav.Link>
       </Nav.Item>
       <Nav.Item >
+        <Nav.Link as={NavLink} to="/register" className="App-link">Register</Nav.Link>
+      </Nav.Item>
+      <Nav.Item >
         <Nav.Link as={NavLink} to="/loggedTickets" className="App-link">Logged Tickets</Nav.Link>
       </Nav.Item>
       <Nav.Item >
