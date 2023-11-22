@@ -5,31 +5,21 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
-public class User {
+public class Client {      
+    
     @Id
-    @GeneratedValue
-    private Long id;
-
-    private String name;
     private String email;
+    private String name;
 
-    protected User(){
+    protected Client(){
 
     }
 
-    public User(String name, String email) {
+    public Client(String name, String email) {
         this.name = name;
         this.email = email;
-      }
-    
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+      }  
+ 
 
     public String getName() {
         return this.name;
@@ -46,7 +36,5 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
-
     
 }
