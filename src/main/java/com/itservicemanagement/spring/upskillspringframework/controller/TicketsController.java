@@ -32,7 +32,7 @@ public class TicketsController{
     
 
     @GetMapping("/{createdBy}")
-    public Ticket getTicket(@PathVariable String createdBy) {
+    public List<Ticket> getTicket(@PathVariable String createdBy) {
        return ticketsRepository.findByCreatedBy(createdBy).orElseThrow(RuntimeException::new);
     }
 
