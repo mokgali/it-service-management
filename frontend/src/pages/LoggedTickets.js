@@ -37,9 +37,9 @@ function LoggedTickets(){
           </thead>
           <tbody>
     
-          {loggedTickets!==null?loggedTickets.map(loggedTicket=>
-             <tr>
-             <td>{loggedTicket.id}</td>
+          {loggedTickets!==null& loggedTickets.length>0?loggedTickets.map((loggedTicket,index)=>
+             <tr key={index}>
+             <td >{loggedTicket.id}</td>
              <td>{loggedTicket.category}</td>
              <td>{loggedTicket.openingDate}</td>
              <td>{loggedTicket.status}</td>
