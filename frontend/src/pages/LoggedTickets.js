@@ -1,5 +1,8 @@
 import Table from 'react-bootstrap/Table';
 import Styles from './LoggedTickets.module.css'
+import { useEffect } from 'react';
+
+
 
 function LoggedTickets(){
 
@@ -29,6 +32,19 @@ function LoggedTickets(){
       
     
     ]
+    const userName='khalele@gmail.com';
+
+   
+    useEffect(()=>{
+      async function fetchLoggedRequests(){
+      const url=`/requests/${userName}`;
+      const response = await fetch(url,{method:'GET'});  
+      console.log(response);
+      //Update the state of logged tickets
+        }
+        fetchLoggedRequests()
+    },[])
+
       return (
       <div className={Styles.LoggedTickets}>
      <Table striped bordered hover variant="blue">
