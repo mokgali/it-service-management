@@ -1,48 +1,25 @@
 import Table from 'react-bootstrap/Table';
 import Styles from './LoggedTickets.module.css'
 import { useEffect } from 'react';
+import { useState } from 'react';
 
 
 
 function LoggedTickets(){
 
     //Tickets that have been previously logged by the user
-    const loggedTickets=[
-    {
-    number:"12354PX",
-    loggedDate:"2022-12-10",
-    ticketStatus:"In Progress",
-    closingDate:"",
-    contactPerson:"Larry Cooper"
-    },
-    {
-      number:"12354PL",
-      loggedDate:"2023-04-15",
-      ticketStatus:"In Progress",
-      closingDate:"",
-      contactPerson:"Emmanuel Koki"
-      },
-      {
-        number:"12355LP",
-        loggedDate:"2023-02-11",
-        ticketStatus:"In Progress",
-        closingDate:"",
-        contactPerson:"Thabo Smith"
-        }
-      
-    
-    ]
+    const [loggedTickets,setLoggedTickets]=useState(null);
     const userName='khalele@gmail.com';
-
    
     useEffect(()=>{
       async function fetchLoggedRequests(){
-      const url=`/requests/${userName}`;
-      const response = await fetch(url,{method:'GET'});  
-      console.log(response);
+      const url=`/tickets/${userName}`;
+      const response = await fetch(url,{method:'GET'}); 
+      const data = await response.json();      
+      setLoggedTickets(data)
       //Update the state of logged tickets
         }
-        fetchLoggedRequests()
+        fetchLoggedRequests()        
     },[])
 
       return (
@@ -51,6 +28,7 @@ function LoggedTickets(){
           <thead>
             <tr>
               <th>Reference Number</th>
+              <th>Category</th>
               <th>Logged Date</th>
               <th>Status</th>
               <th>Closing Date</th>       
@@ -59,15 +37,16 @@ function LoggedTickets(){
           </thead>
           <tbody>
     
-          {loggedTickets.map(loggedTicket=>
+          {loggedTickets!==null?loggedTickets.map(loggedTicket=>
              <tr>
-             <td>{loggedTicket.number}</td>
-             <td>{loggedTicket.loggedDate}</td>
-             <td>{loggedTicket.ticketStatus}</td>
+             <td>{loggedTicket.id}</td>
+             <td>{loggedTicket.category}</td>
+             <td>{loggedTicket.openingDate}</td>
+             <td>{loggedTicket.status}</td>
              <td>{loggedTicket.closingDate}</td>
-             <td>{loggedTicket.contactPerson}</td>
+             <td>{loggedTicket.assignedTo}</td>
            </tr>
-            )}      
+            ):<></>}      
            
           </tbody>
         </Table> 
