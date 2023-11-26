@@ -1,9 +1,8 @@
 import Table from 'react-bootstrap/Table';
 import Styles from './LoggedTickets.module.css'
+import Operations from '../components/Operations';
 import { useEffect } from 'react';
 import { useState } from 'react';
-
-
 
 function LoggedTickets(){
 
@@ -23,7 +22,8 @@ function LoggedTickets(){
     },[])
 
       return (
-      <div className={Styles.LoggedTickets}>
+    <div className={Styles.LoggedTickets}>
+     <Operations/>
      <Table striped bordered hover variant="blue">
           <thead>
             <tr>
@@ -37,7 +37,7 @@ function LoggedTickets(){
           </thead>
           <tbody>
     
-          {loggedTickets!==null& loggedTickets.length>0?loggedTickets.map((loggedTicket,index)=>
+          {loggedTickets!==null && loggedTickets.length>0?loggedTickets.map((loggedTicket,index)=>
              <tr key={index}>
              <td >{loggedTicket.id}</td>
              <td>{loggedTicket.category}</td>

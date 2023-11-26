@@ -1,0 +1,25 @@
+.tableOperations{ 
+    /*background-color: #cae9f129;
+    padding-top: 50px;*/
+    height: 30%;
+  
+}
+.operation{
+    border-bottom-style: groove ;     
+    
+}
+
+.operationItem{   
+    border-bottom-style: groove ; 
+    border-bottom: rgb(127, 136, 255);      
+    border-top: none;
+    border-right: none;
+    border-left: none;   
+}
+
+.sortItem {
+  
+    float: left;     
+    display: inline;
+    padding-bottom: 2%;
+}
