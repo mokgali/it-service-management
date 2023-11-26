@@ -17,7 +17,7 @@ function Operations(){
       <Container fluid>
       <Row>
        <Col xs={6}><TableSearch input=""/></Col>
-       <Col xs={2}><TableFilter/></Col>
+       <Col xs={3}><TableFilter/></Col>
        <Col><TableSort/></Col>
     </Row>
     </Container>
