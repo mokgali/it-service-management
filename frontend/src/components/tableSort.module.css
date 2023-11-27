@@ -19,7 +19,8 @@
 
 .sortItem {
   
-    float: left;     
+    float: right;     
     display: inline;
     padding-bottom: 2%;
 }
+

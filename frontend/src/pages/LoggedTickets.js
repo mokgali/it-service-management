@@ -1,8 +1,10 @@
 import Table from 'react-bootstrap/Table';
 import Styles from './LoggedTickets.module.css'
-import Operations from '../components/Operations';
+import Operations from '../components/tableOperations';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import TableOperations from '../components/tableOperations';
+import TicketsTable from '../components/table';
 
 function LoggedTickets(){
 
@@ -14,43 +16,17 @@ function LoggedTickets(){
       async function fetchLoggedRequests(){
       const url=`/tickets/${userName}`;
       const response = await fetch(url,{method:'GET'}); 
-      const data = await response.json();      
-      setLoggedTickets(data)
-      //Update the state of logged tickets
-        }
+      const data = await response.json();    
+      console.log(data)  
+      setLoggedTickets(data)     
+      }
         fetchLoggedRequests()        
     },[])
 
-      return (
+    return (
     <div className={Styles.LoggedTickets}>
-     <Operations/>
-     <Table striped bordered hover variant="blue">
-          <thead>
-            <tr>
-              <th>Reference Number</th>
-              <th>Category</th>
-              <th>Logged Date</th>
-              <th>Status</th>
-              <th>Closing Date</th>       
-              <th>Contact Person</th>    
-            </tr>
-          </thead>
-          <tbody>
-    
-          {loggedTickets!==null && loggedTickets.length>0?loggedTickets.map((loggedTicket,index)=>
-             <tr key={index}>
-             <td >{loggedTicket.id}</td>
-             <td>{loggedTicket.category}</td>
-             <td>{loggedTicket.openingDate}</td>
-             <td>{loggedTicket.status}</td>
-             <td>{loggedTicket.closingDate}</td>
-             <td>{loggedTicket.assignedTo}</td>
-           </tr>
-            ):<></>}      
-           
-          </tbody>
-        </Table> 
-      </div>)
+     {loggedTickets!==null && loggedTickets.length>0?<TicketsTable loggedTickets={loggedTickets}/>:<></>}         
+    </div>)
     }
     
 export default LoggedTickets;

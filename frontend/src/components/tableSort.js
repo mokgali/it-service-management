@@ -3,7 +3,7 @@ import styles from "./tableSort.module.css"
 
 function TableSort(){
   return(
-    <>
+    <div >
     <Form className={styles.sortItem}>
     <Form.Check // prettier-ignore
       type="switch"
@@ -12,17 +12,17 @@ function TableSort(){
     />         
   </Form>
   <Dropdown className={styles.sortItem}>
-    <Dropdown.Toggle variant="info" id="dropdown-basic">
+  <Dropdown.Toggle variant="info" id="dropdown-basic">
       Sort Tickets By:
-    </Dropdown.Toggle>
-    <Dropdown.Menu>
+  </Dropdown.Toggle>   
+  <Dropdown.Menu>
       <Dropdown.Item href="#/action-1">Status</Dropdown.Item>     
       <Dropdown.Item href="#/action-3">Category</Dropdown.Item>    
       <Dropdown.Item href="#/action-3">Opening Date</Dropdown.Item>
       <Dropdown.Item href="#/action-3">Closing Date</Dropdown.Item>
-    </Dropdown.Menu>     
+    </Dropdown.Menu>       
   </Dropdown> 
-  </>
+  </div>
   )
 }
 export default TableSort
