@@ -1,10 +1,11 @@
-import Table from 'react-bootstrap/Table';
+import {Table,Container,Row,Col} from 'react-bootstrap';
 import Styles from './LoggedTickets.module.css'
 import Operations from '../components/tableOperations';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import TableOperations from '../components/tableOperations';
 import TicketsTable from '../components/table';
+import SideMenu from '../components/sideMenu';
 
 function LoggedTickets(){
 
@@ -23,10 +24,18 @@ function LoggedTickets(){
         fetchLoggedRequests()        
     },[])
 
-    return (
-    <div className={Styles.LoggedTickets}>
-     {loggedTickets!==null && loggedTickets.length>0?<TicketsTable loggedTickets={loggedTickets}/>:<></>}         
-    </div>)
-    }
+    return (     
+    <Container fluid className={Styles.LoggedTickets}>      
+      <Row>
+       {/* <Col xs={2}><SideMenu/> </Col> */}
+       <Col >
+        <div >     
+        {loggedTickets!==null && loggedTickets.length>0?<TicketsTable loggedTickets={loggedTickets}/>:<></>}         
+        </div>
+       </Col>       
+    </Row>      
+    </Container>
+    )
+}
     
 export default LoggedTickets;
