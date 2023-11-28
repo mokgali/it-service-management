@@ -6,8 +6,11 @@ import styles from "./menu.module.css"
 function Menu(){
     return (
     <div className={styles.menu}>
-{     <Nav defaultActiveKey="/"  className="justify-content-end">      
-      <Nav.Item >
+{     <Nav defaultActiveKey="/"  className="justify-content-end">  
+       <Nav.Item >
+        <Nav.Link as={NavLink} to="/dashboard" className="App-link">Dashboard</Nav.Link>
+      </Nav.Item>
+       <Nav.Item >
         <Nav.Link as={NavLink} to="/" className="App-link">Home</Nav.Link>
       </Nav.Item>
       <Nav.Item >
