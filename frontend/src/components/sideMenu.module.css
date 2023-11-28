@@ -1,4 +1,7 @@
-.sideMenu{ 
-    background-color: hsla(206, 75%, 46%, 0.161);  
- 
+.sideMenu{      
+    height: 80%; 
+    padding-top: 20%;
+    border-right-style:solid;
+    border-width: 2px;
+    border-color: #28cbf881;
 }

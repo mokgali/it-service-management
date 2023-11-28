@@ -1,6 +1,7 @@
 import { Form } from 'react-bootstrap';
 import { Image} from 'react-bootstrap'
-import { Button} from 'react-bootstrap'
+import { Container,Button,Row,Col} from 'react-bootstrap'
+import SideMenu from '../components/sideMenu';
 import Styles from './AddTicket.module.css'
 import { useState } from 'react';
 
@@ -40,13 +41,13 @@ async function addRequest(e){
       creationDate:creationDate,
       createdBy:username
     })
-  });           
-
-
+  });         
 }
-
     return(
-      <div >
+      <Container fluid > 
+      <Row className={Styles.ticketsContainer}>
+      <Col xs={2}><SideMenu/> </Col>
+      <Col >
       <Form className={Styles.AddTicket}>
       <Form.Group  controlId="RequestCategory" className="mb-3">
         <Form.Select aria-label="Default select example" onChange={e=>handleCategory(e)}>
@@ -71,9 +72,11 @@ async function addRequest(e){
         <Form.Group  className="mb-3" >
         <Button variant="primary" className="float-end" onClick={addRequest}>Submit</Button>    
         </Form.Group>
-      </Form>
-      
-       </div>  
-    )  
+      </Form>          
+   </Col>
+   </Row> 
+   </Container>
+   )       
+    
   }
 export default AddTicket;

@@ -1,3 +1,7 @@
-.dashboard{
-    padding: 1%;
+.dashboardContainer{
+    height: 1100px;    
 }
+.ReportsCategory{
+    padding-top: 2%;
+}
+

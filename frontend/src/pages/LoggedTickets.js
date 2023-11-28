@@ -25,10 +25,10 @@ function LoggedTickets(){
     },[])
 
     return (     
-    <Container fluid className={Styles.LoggedTickets}>      
-      <Row>
-       {/* <Col xs={2}><SideMenu/> </Col> */}
-       <Col >
+    <Container fluid  >      
+      <Row className={Styles.LoggedTicketsContainer}>
+       <Col xs={2}><SideMenu/> </Col>
+       <Col className={Styles.LoggedTicketsRow}>
         <div >     
         {loggedTickets!==null && loggedTickets.length>0?<TicketsTable loggedTickets={loggedTickets}/>:<></>}         
         </div>

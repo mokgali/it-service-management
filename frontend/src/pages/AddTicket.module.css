@@ -1,5 +1,8 @@
-.AddTicket{ 
+.ticketsContainer{
+    height: 1100px; 
+}
 
+.AddTicket{ 
     padding-top: 5%;
     padding-left: 2%;
     padding-right: 2%;
@@ -12,7 +15,5 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 20%;
- 
-    
+    top: 20%;    
  }

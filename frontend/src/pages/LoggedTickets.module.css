@@ -1,5 +1,8 @@
-.LoggedTickets{
-    /* background-color: #cae9f129; */ 
-     padding-top: 40px;     
-   
+.LoggedTicketsContainer{     
+     height: 1100px;  
+    
  }
+ .LoggedTicketsRow
+ {
+    padding-top: 2%; 
+  }
