@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import java.sql.Date;
 
 @Entity
 public class Ticket {      
@@ -13,8 +14,8 @@ public class Ticket {
 	private Long id;
 	private String category;
 	private String status = "created";
-	private String openingDate;
-	private String closingDate;
+	private Date openingDate;
+	private Date closingDate;
 	private String createdBy;
 	private String assignedTo;
 
@@ -44,19 +45,19 @@ public class Ticket {
 		this.status =  status;
 	}
 
-	public String getOpeningDate() {
+	public Date getOpeningDate() {
 		return this.openingDate;
 	}
 
-	public void setOpeningDate(String openingDate) {
+	public void setOpeningDate(Date openingDate) {
 		this.openingDate = openingDate;
 	}
 
-	public String getClosingDate() {
+	public Date getClosingDate() {
 		return this.closingDate;
 	}
 
-	public void setClosingDate(String closingDate) {
+	public void setClosingDate(Date closingDate) {
 		this.closingDate = closingDate;
 	}
 
