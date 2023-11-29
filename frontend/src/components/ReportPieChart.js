@@ -1,11 +1,11 @@
 import {PieChart,Pie,Cell} from 'recharts'
 
-const data = [
+/* const data = [
     { name: "Group A", value: 400 },
     { name: "Group B", value: 300 },
     { name: "Group C", value: 300 },
     { name: "Group D", value: 200 }
-  ];
+  ]; */
 
   const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
   const RADIAN = Math.PI / 180;
@@ -23,6 +23,7 @@ const data = [
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
   
     return (
+     <> 
       <text
         x={x}
         y={y}
@@ -32,10 +33,27 @@ const data = [
       >
         {`${(percent * 100).toFixed(0)}%`}
       </text>
+      </>  
     );
   };
 
-function ReportPieChart(){
+function ReportPieChart({chartData}){
+
+      const data= ["Pending", "Closed"].map(element => {
+        var totalForStatus=0;
+        chartData.forEach(dataElement=>{
+               if(element===dataElement.status){
+                totalForStatus++;
+               }
+        })
+        return{
+            name:element,
+            value:totalForStatus
+        }
+    });
+    
+
+
  return(
     <PieChart width={800} height={800}>
     <Pie
