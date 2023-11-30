@@ -1,14 +1,10 @@
 import { ButtonGroup,Button } from "react-bootstrap"
-import { useState } from "react";
 
 function ReportRange({onReportRangeSelection}){
-    //const [selectedQueryRange,setSelectedQueryRange]= useState('');
 
-    function handleQuerySelection(e){
-        //setSelectedQueryRange(selectedQueryRange=>e.targetElement.value)
-        //Create the cutoff date for which we want to query by
-        onReportRangeSelection(e.target.value)
-
+      function handleQuerySelection(e){
+     //Invoke the callback passed in as a param by the parent component
+      onReportRangeSelection(e.target.value)
     }
 
    return( <ButtonGroup aria-label="Report Range">
