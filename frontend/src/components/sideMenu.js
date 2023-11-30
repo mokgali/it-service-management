@@ -19,13 +19,13 @@ function SideMenu(){
     <div className={styles.sideMenu}>
     <Nav defaultActiveKey="/"  className="flex-column">  
        <Nav.Item >
-        <Nav.Link as={NavLink} to="/dashboard" className="App-link">DASHBOARD</Nav.Link>
+        <Nav.Link as={NavLink} to="/dashboard" className="App-link"><img src="/dashboard.jpg" className={styles.navIcon} alt="dashboard" /> <span className={styles.navText}>Dashbord</span></Nav.Link>
       </Nav.Item>   
       <Nav.Item >
-        <Nav.Link as={NavLink} to="/loggedTickets" className="App-link">LOGGED TICKETS</Nav.Link>
+        <Nav.Link as={NavLink} to="/loggedTickets" className="App-link"><img src="/loggedTickets.jpg" className={styles.navIcon} alt="loggedTickets" /><span className={styles.navText}> Logged Tickets</span></Nav.Link>
       </Nav.Item>
       <Nav.Item >
-        <Nav.Link as={NavLink} to="/addTicket" className="App-link">ADD TICKET</Nav.Link>
+        <Nav.Link as={NavLink} to="/addTicket" className="App-link"><img src="/addTicket.jpg" className={styles.navIcon} alt="addTicket" /><span className={styles.navText}>Capture Ticket</span></Nav.Link>
       </Nav.Item>
     </Nav>
     </div>

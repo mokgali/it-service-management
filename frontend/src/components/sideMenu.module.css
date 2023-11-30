@@ -5,3 +5,12 @@
     border-width: 2px;
     border-color: #28cbf881;
 }
+.navIcon {
+    height: 3vmin;
+    pointer-events: none;
+  }
+  .navText{
+    text-transform: uppercase;
+   font-size: large;
+  }
+  
