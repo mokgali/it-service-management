@@ -16,6 +16,9 @@ function Dashboard(){
     const todayDate= new Date();
     todayDate.setDate((todayDate.getDate()-7))
     const [formattedDate] = todayDate.toISOString().split('T');
+    const [totalOpenTickets,setTotalOpenTickets]=useState(0)
+    const [totalPendingTickets,setTotalPendingTickets]=useState(0)
+    const [totalClosedTickets,setTotalClosedTickets]=useState(0)
       
 
     useEffect(()=>{
@@ -35,20 +38,36 @@ return(
        <Col xs={2}><SideMenu/> </Col>
        <Col className={Styles.ReportsCategory} >
             <Row >
-            <Col xs={6}> <ReportType/></Col>
+            <Col xs={6}> <h3>Dashboard</h3></Col>
             <Col xs={6}><ReportRange/></Col>    
             </Row>  
             <Row>
             <Col>  <ReportFilters/></Col>
-            </Row> 
+            </Row>
+            <Row className={Styles.statsBar}>
+            <Col className={Styles.statDiv}>
+            {/* <img src="/open.jpg" className={Styles.statIcon} alt="open" /> */}
+            <h5>Open Tickets</h5>    
+            <h5>{totalOpenTickets}</h5>       
+            </Col>
+            <Col className={Styles.statDiv}>
+            {/* <img src="/pending.jpg" className={Styles.statIcon} alt="pending" /> */}
+             <h5>Pending Tickets</h5>
+             <h5>{totalPendingTickets}</h5>
+             </Col>
+            <Col className={Styles.statDiv} >
+            {/* <img src="/closed.jpg" className={Styles.statIcon}  alt="closed" /> */}
+            <h5>Closed Tickets</h5>
+            <h5>{totalClosedTickets}</h5>
+            </Col>             
+            </Row>
             {data!==null && data.length>0? 
             <Row>
             <Col><ReportBarChart chartData={data}/></Col>    
             <Col><ReportPieChart chartData={data}/></Col>          
             </Row>                                 
             :<></>
-            }
-                   
+            }                   
             
        </Col>       
        </Row> 
