@@ -77,7 +77,7 @@ return(
             <Row>
             <Col>  <ReportFilters/></Col>
             </Row>
-     {        <Row className={Styles.statsBar}>
+         {  <Row className={Styles.statsBar}>
              {statsTotals!==null && statsTotals.length>0? statsTotals.map(statsTotalObject=>{
                   return (<Col className={Styles.statDiv} key={statsTotalObject.name}>
                    <h5>{statsTotalObject.name} Tickets</h5>    
