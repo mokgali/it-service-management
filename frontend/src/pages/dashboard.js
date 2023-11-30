@@ -16,21 +16,38 @@ function Dashboard(){
     const todayDate= new Date();
     todayDate.setDate((todayDate.getDate()-7))
     const [formattedDate] = todayDate.toISOString().split('T');
-    const [totalOpenTickets,setTotalOpenTickets]=useState(0)
-    const [totalPendingTickets,setTotalPendingTickets]=useState(0)
-    const [totalClosedTickets,setTotalClosedTickets]=useState(0)
-      
-
-    useEffect(()=>{
-        async function fetchLoggedRequests(){
+    const selectedFilter= useState('This Week');    
+    const [statsTotals,setStatsTotals]=useState([{name:"Open",total:0},{name:"Pending",total:0},{name:"Closed",total:0}])
+     
+     useEffect(()=>{
+        async function fetchTicketsForDateRange(){
         const url=`/tickets/${userName}/${formattedDate}`;
         const response = await fetch(url,{method:'GET'}); 
-        const data = await response.json();    
-        console.log(data)  
-        setData(data)     
+        const responseData = await response.json();          
+        setData(data=>responseData);   
+        console.log(data) 
+        if(data){    
+        generateGenericTotalsFromData() 
+        }       
         }
-          fetchLoggedRequests()        
-      },[])
+        fetchTicketsForDateRange()        
+      })
+
+      function generateGenericTotalsFromData(){
+        const dataByStatus= ["Open","Pending","Closed"].map(element => {
+            var totalForStatus=0;
+            data.forEach(dataElement=>{
+                   if(element===dataElement.status){
+                    totalForStatus++;
+                   }
+            })
+            return{
+                name:element,
+                total:totalForStatus
+            }
+        });  
+         setStatsTotals(dataByStatus); 
+      }
 
 return(
     <Container fluid  className={Styles.dashboard}> 
@@ -45,26 +62,20 @@ return(
             <Col>  <ReportFilters/></Col>
             </Row>
             <Row className={Styles.statsBar}>
-            <Col className={Styles.statDiv}>
-            {/* <img src="/open.jpg" className={Styles.statIcon} alt="open" /> */}
-            <h5>Open Tickets</h5>    
-            <h5>{totalOpenTickets}</h5>       
-            </Col>
-            <Col className={Styles.statDiv}>
-            {/* <img src="/pending.jpg" className={Styles.statIcon} alt="pending" /> */}
-             <h5>Pending Tickets</h5>
-             <h5>{totalPendingTickets}</h5>
-             </Col>
-            <Col className={Styles.statDiv} >
-            {/* <img src="/closed.jpg" className={Styles.statIcon}  alt="closed" /> */}
-            <h5>Closed Tickets</h5>
-            <h5>{totalClosedTickets}</h5>
-            </Col>             
+
+             {statsTotals.map(statsTotalObject=>{
+                  return (<Col className={Styles.statDiv} >
+                   <h5>{statsTotalObject.name} Tickets</h5>    
+                   <h5>{statsTotalObject.total} </h5>       
+                   </Col>
+                  )
+                  }
+                )}                       
             </Row>
             {data!==null && data.length>0? 
             <Row>
             <Col><ReportBarChart chartData={data}/></Col>    
-            <Col><ReportPieChart chartData={data}/></Col>          
+            <Col><ReportPieChart chartData={statsTotals}/></Col>          
             </Row>                                 
             :<></>
             }                   
