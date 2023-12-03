@@ -30,7 +30,7 @@ function ReportBarChart({chartData}){
     
   });
  return (
-   <ResponsiveContainer width="100%" height="60%">
+ <ResponsiveContainer width="100%" height="60%">
  <BarChart
           width={500}
           height={300}

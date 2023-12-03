@@ -1,0 +1,21 @@
+  .statsTotals { 
+    display:flex;
+    flex-direction: row;
+    margin-top: 2%;  
+    height: 2%;    
+  }
+  
+.statTotalsItem {  
+   margin-left: 15%; 
+   text-align: center;
+   background-color: #61dafb29; 
+   border-style: solid;
+   border-width: 2px;
+   border-style:ridge;   
+  }
+  .pieChart{
+  align-content: center;
+   width: 1200px; 
+   height: 98%;
+
+ }

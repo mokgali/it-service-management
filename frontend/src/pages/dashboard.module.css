@@ -1,8 +1,18 @@
 .dashboardContainer{
-    height: 1100px;    
+    height: 80%;    
 }
-.ReportsCategory{
+.statsRangeBar{
+  height: 5%;    
+}
+.statsContainer{
     padding-top: 2%;
+    height: 100%;  
+}
+.statsSummary{ 
+  height: 30%;  
+}
+.statsDetail{ 
+  height: 500px;  
 }
 
 .statsBar{

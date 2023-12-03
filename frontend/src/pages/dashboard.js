@@ -3,6 +3,7 @@ import SideMenu from "../components/sideMenu"
 import ReportType from "../components/ReportType"
 import ReportRange from "../components/ReportRange"
 import ReportFilters from "../components/ReportFilters"
+import StatisticsSummary from "../components/StatisticsSummary"
 import ReportBarChart from "../components/ReportBarChart"
 import ReportPieChart from "../components/ReportPieChart"
 import { Container,Row,Col } from "react-bootstrap"
@@ -69,33 +70,24 @@ return(
     <Container fluid  className={Styles.dashboard}> 
       <Row className={Styles.dashboardContainer}>
        <Col xs={2}><SideMenu/> </Col>
-       <Col className={Styles.ReportsCategory} >
-            <Row >
+       <Col className={Styles.statsContainer} >
+            <Row className={Styles.statsRangeBar} >
             <Col xs={6}> <h3>Dashboard</h3></Col>
             <Col xs={6}><ReportRange onReportRangeSelection={handleReportRangeSelection}/></Col>    
-            </Row>  
-            <Row>
-            <Col>  <ReportFilters/></Col>
-            </Row>
-         {  <Row className={Styles.statsBar}>
-             {statsTotals!==null && statsTotals.length>0? statsTotals.map(statsTotalObject=>{
-                  return (<Col className={Styles.statDiv} key={statsTotalObject.name}>
-                   <h5>{statsTotalObject.name} Tickets</h5>    
-                   <h5>{statsTotalObject.total} </h5>       
-                   </Col>
-                  )
-                  }
-                ):<></>}                       
-            </Row>}
+            </Row>            
             {(data!==null||data!==null) && data.length>0? 
-            <Row>
-            <Col><ReportBarChart chartData={data}/></Col>    
-            <Col><ReportPieChart chartData={statsTotals}/></Col>          
-            </Row>                                 
+            <Row className={Styles.statsSummary}>
+                <StatisticsSummary chartData={data}/>
+            </Row>
             :<></>
-            }                   
-            
-       </Col>       
+            }
+            {(data!==null||data!==null) && data.length>0? 
+            <Row className={Styles.statsDetail}>
+            <ReportBarChart chartData={data}/>                    
+            </Row>    
+            :<></>  
+            }                    
+        </Col>       
        </Row> 
 
    

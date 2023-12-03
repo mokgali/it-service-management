@@ -1,4 +1,5 @@
 import {PieChart,Pie,Cell} from 'recharts'
+import Styles from "./ReportPieChart.module.css"
 
 
   const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
@@ -35,7 +36,7 @@ function ReportPieChart({chartData}){
 
 
  return(
-    <PieChart width={800} height={800}>
+    <PieChart width={1500} height={500} >
     <Pie
       data={chartData}
       cx={300}
