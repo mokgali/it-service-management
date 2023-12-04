@@ -6,12 +6,15 @@
   }
   
 .statTotalsItem {  
-   margin-left: 15%; 
+   margin-left: 10%; 
    text-align: center;
    background-color: #61dafb29; 
    border-style: solid;
    border-width: 2px;
    border-style:ridge;   
+   width: 20%;
+   font-size: large;
+   font-weight: bold;
   }
   .pieChart{
   align-content: center;

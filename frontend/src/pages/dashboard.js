@@ -21,15 +21,17 @@ function Dashboard(){
         function generateGenericTotalsFromData(){
             const dataByStatus= ["Open","Pending","Closed"].map(element => {
                 var totalForStatus=0;
+                var color='';
                 if(data!==null && data.length>0)
                 {data.forEach(dataElement=>{
                        if(element===dataElement.status){
                         totalForStatus++;
-                       }
+                       }                    
                 })
                 return{
                     name:element,
-                    total:totalForStatus
+                    total:totalForStatus,
+                    color:color
                 }
             }
             });  
@@ -37,20 +39,26 @@ function Dashboard(){
           }
 
         async function fetchTicketsForDateRange(){
-        const todayDate= new Date();
-        todayDate.setDate((todayDate.getDate()-7))
+        let todayDate= new Date();       
         if(selectedReportRange==="Past two weeks")
         {
         todayDate.setDate((todayDate.getDate()-14))
         }
         if(selectedReportRange==="This Month")
-        {
-        todayDate.setDate((todayDate.getDate()-30))
+        {    
+          todayDate =  getFirstDayOfMonth(todayDate.getFullYear(),todayDate.getMonth());
+          
         }
         if(selectedReportRange==="Last Month")
         {
-        todayDate.setDate((todayDate.getDate()-30))
-        }        
+          todayDate=  getFirstDayOfMonth(todayDate.getFullYear(),todayDate.getMonth()-1);
+          
+        } 
+        if(selectedReportRange==="This Year")
+        {
+          todayDate=  getFirstDayOfMonth(todayDate.getFullYear(),1);
+          
+        }          
         const [formattedDate] = todayDate.toISOString().split('T');
 
         const url=`/tickets/${userName}/${formattedDate}`;
@@ -66,13 +74,18 @@ function Dashboard(){
         setSelectedReportRange(e=>selectedReportRange);
       }
 
+      function getFirstDayOfMonth(year, month) {
+        return new Date(year, month, 1);
+      }
+      
+
 return(
     <Container fluid  className={Styles.dashboard}> 
       <Row className={Styles.dashboardContainer}>
        <Col xs={2}><SideMenu/> </Col>
        <Col className={Styles.statsContainer} >
             <Row className={Styles.statsRangeBar} >
-            <Col xs={6}> <h3>Dashboard</h3></Col>
+            <Col xs={6}> <h3>Tickets Statistics</h3></Col>
             <Col xs={6}><ReportRange onReportRangeSelection={handleReportRangeSelection}/></Col>    
             </Row>            
             {(data!==null||data!==null) && data.length>0? 

@@ -2,7 +2,7 @@ import {PieChart,Pie,Cell} from 'recharts'
 import Styles from "./ReportPieChart.module.css"
 
 
-  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+  let COLORS = {Open:'rgb(255, 0, 0)',Pending:'rgb(255,187,40)',Closed:'rgb(0, 196, 159)'};
   const RADIAN = Math.PI / 180;
   const renderCustomizedLabel = ({
     cx,
@@ -47,8 +47,8 @@ function ReportPieChart({chartData}){
       fill="#8884d8"
       dataKey="total"
     >
-      {chartData.map((entry, index) => (
-        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+      {chartData.map((entry, index) => (      
+        <Cell key={`cell-${index}`} fill={COLORS[entry.name]} />
       ))}
     </Pie>
   </PieChart>

@@ -47,8 +47,8 @@ function ReportBarChart({chartData}){
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="Closed" stackId="a" fill="green" />
-          <Bar dataKey="Pending" stackId="a" fill="orange" />
+          <Bar dataKey="Closed" stackId="a" fill="rgb(0, 196, 159)" />
+          <Bar dataKey="Pending" stackId="a" fill="rgb(255, 187, 40)" />
           <Bar dataKey="Open" stackId="a" fill="red" />
         </BarChart>
 </ResponsiveContainer> 

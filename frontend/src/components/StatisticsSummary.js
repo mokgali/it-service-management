@@ -25,7 +25,7 @@ function StatisticsSummary({chartData}){
         {chartDataByStatus.map(dataByStatus=>{
         return (
         <div className={Styles.statTotalsItem} key={dataByStatus.name}>
-         <p>{dataByStatus.name} Tickets</p>
+         <p>{dataByStatus.name}</p>
          <p>{dataByStatus.total}</p>
              
         </div>
