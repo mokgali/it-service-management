@@ -36,7 +36,7 @@ function ReportPieChart({chartData}){
 
 
  return(
-    <PieChart width={1500} height={500} >
+    <PieChart width={1500} height={400} >
     <Pie
       data={chartData}
       cx={300}
