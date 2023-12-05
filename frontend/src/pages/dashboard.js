@@ -85,7 +85,7 @@ return(
        <Col xs={2}><SideMenu/> </Col>
        <Col className={Styles.statsContainer} >
             <Row className={Styles.statsRangeBar} >
-            <Col xs={6}> <h3>Tickets Statistics</h3></Col>
+            <Col xs={6}> <h3>Ticket Statistics</h3></Col>
             <Col xs={6}><ReportRange onReportRangeSelection={handleReportRangeSelection}/></Col>    
             </Row>            
             {(data!==null||data!==null) && data.length>0? 
