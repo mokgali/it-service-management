@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,31 +19,31 @@ import com.itservicemanagement.spring.upskillspringframework.repository.ClientsR
 
 @RestController
 @RequestMapping("/clients")
-public class ClientsController {
+public class AuthenticationController {
 
-    private final ClientsRepository clientsRepository;
+    private final ClientsRepository usersRepository;
 
-    public ClientsController(ClientsRepository clientsRepository){
-        this.clientsRepository=clientsRepository;
+    public AuthenticationController(ClientsRepository usersRepository){
+        this.usersRepository=usersRepository;        
     }
 
     
     @GetMapping()
     public List<Client> getClients() {
-      return clientsRepository.findAll();    
+      return usersRepository.findAll();    
     }        
     
 
-    @GetMapping("/{email}")
-    public Client getClient(@PathVariable String email) {
-       return clientsRepository.findByEmail(email).orElseThrow(RuntimeException::new);
+    @PostMapping("/{userName}/{password}")
+    public Client login(@PathVariable String userName,@PathVariable String password) {
+       return usersRepository.findByUserName(userName).orElseThrow(RuntimeException::new);    
 
     }
 
     @PostMapping
     public ResponseEntity createClient(@RequestBody Client client) throws URISyntaxException {
-        Client savedClient = clientsRepository.save(client);
-        return ResponseEntity.created(new URI("/clients/" + savedClient.getEmail())).body(savedClient);
+        Client savedClient = usersRepository.save(client);
+        return ResponseEntity.created(new URI("/users/" + savedClient.getUsername())).body(savedClient);
     }
 
 }
